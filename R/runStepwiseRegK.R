@@ -31,8 +31,9 @@ runStepwiseRegK <- function(ggc, filt.data) {
             utils::setTxtProgressBar(pb = pb, value = i / num_steps)
 
             # Compute GGC'*GGC
-             ggc_ggc <- Matrix::t(ggc_centered) %*% ggc_centered
-          
+             #ggc_ggc <- Matrix::t(ggc_centered) %*% ggc_centered
+            ggc_ggc <- crossprod(ggc_centered, ggc_centered)
+
             dimnames(ggc_ggc) <- dimnames(ggc_centered)
 
             # Compute variance explained
